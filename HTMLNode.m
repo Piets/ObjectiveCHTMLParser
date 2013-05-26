@@ -80,6 +80,9 @@ NSString * getAttributeNamed(xmlNode * node, const char * nameStr)
 //Returns the tag name
 -(NSString*)tagName
 {
+        if (_node->name == nil)
+                return nil;
+
 	return [NSString stringWithCString:(void*)_node->name encoding:NSUTF8StringEncoding];
 }
 
