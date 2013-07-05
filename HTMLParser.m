@@ -117,6 +117,16 @@
 	return self;
 }
 
+- (BOOL)writeToURL:(NSURL *)inURL
+{
+	NSString *path = [inURL absoluteString];
+	
+	int bytes = htmlSaveFile([path UTF8String], _doc);
+	
+	if (bytes > 0) return YES;
+	
+	return NO;
+}
 
 -(void)dealloc
 {
@@ -125,6 +135,7 @@
 		xmlFreeDoc(_doc);
 	}
 
+	[super dealloc];
 }
 
 @end

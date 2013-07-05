@@ -107,5 +107,7 @@ HTMLNodeType nodeType(xmlNode* node);
 NSString * allNodeContents(xmlNode*node);
 NSString * rawContentsOfNode(xmlNode * node);
 
+- (void)replaceContentWithString:(NSString *)inStr;
+- (void)setAttribute:(NSString *)attr toValue:(NSString *)val;
 
 @end

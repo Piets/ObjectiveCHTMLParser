@@ -46,6 +46,14 @@ void setAttributeNamed(xmlNode * node, const char * nameStr, const char * value)
 	
 }
 
+- (void)setAttribute:(NSString *)attr toValue:(NSString *)val
+{
+	const char * attrStr = [attr UTF8String];
+	const char * valStr = [val UTF8String];
+	
+	setAttributeNamed(_node, attrStr, valStr);
+}
+
 NSString * getAttributeNamed(xmlNode * node, const char * nameStr)
 {
 	for(xmlAttrPtr attr = node->properties; NULL != attr; attr = attr->next)
@@ -380,6 +388,13 @@ NSString * allNodeContents(xmlNode*node)
 	}
 	
 	return @"";
+}
+
+- (void)replaceContentWithString:(NSString *)inStr
+{
+	const unsigned char * theStr = (const unsigned char *)[inStr UTF8String];
+	
+	xmlNodeSetContent(_node, theStr);
 }
 
 -(NSString*)allContents

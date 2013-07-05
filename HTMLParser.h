@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <libxml/HTMLparser.h>
+#import <libxml/HTMLtree.h>
 #import "HTMLNode.h"
 
 @class HTMLNode;
@@ -33,5 +34,7 @@
 
 //Returns the head tag
 - (HTMLNode*)head;
+
+- (BOOL)writeToURL:(NSURL *)inURL;
 
 @end
